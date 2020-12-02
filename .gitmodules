@@ -1,3 +1,6 @@
 [submodule "hello-app/kubernetes-engine-samples"]
 	path = hello-app/kubernetes-engine-samples
 	url = https://github.com/GoogleCloudPlatform/kubernetes-engine-samples
+[submodule "tf/learn-terraform-provision-gke-cluster"]
+	path = tf/learn-terraform-provision-gke-cluster
+	url = https://github.com/hashicorp/learn-terraform-provision-gke-cluster
