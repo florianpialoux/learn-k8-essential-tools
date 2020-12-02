@@ -4,3 +4,9 @@
 [submodule "tf/learn-terraform-provision-gke-cluster"]
 	path = tf/learn-terraform-provision-gke-cluster
 	url = https://github.com/hashicorp/learn-terraform-provision-gke-cluster
+[submodule "tf/--force"]
+	path = tf/--force
+	url = https://github.com/hashicorp/learn-terraform-provision-gke-cluster
+[submodule "terraform/learn-terraform-provision-gke-cluster"]
+	path = terraform/learn-terraform-provision-gke-cluster
+	url = https://github.com/hashicorp/learn-terraform-provision-gke-cluster
