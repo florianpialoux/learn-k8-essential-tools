@@ -2,10 +2,4 @@
 
 Repo used for testing purposes by Florian.
 
-1) Run k8 through GKE.
-Document necessary steps to be able to rebuild a cluster in a quick manner.
-Look into TF to deploy a GKE cluster.
-
-2) Install DevSpace
-Figure out how it integrates with k8.
-Play with it.
+Terraform that provisions a GKE cluster based on my project ID in us-west region with 3 g1-small nodes.
