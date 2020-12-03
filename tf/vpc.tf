@@ -2,14 +2,14 @@ variable "project_id" {
   description = "project id"
 }
 
-variable "zone" {
-  description = "zone"
+variable "region" {
+  description = "region"
 }
 
 provider "google" {
   credentials = file("florian-test-297317-579f4bd03967.json")
   project = var.project_id
-  region  = var.zone
+  region  = var.region
 }
 
 # VPC
@@ -21,13 +21,13 @@ resource "google_compute_network" "vpc" {
 # Subnet
 resource "google_compute_subnetwork" "subnet" {
   name          = "${var.project_id}-subnet"
-  region        = var.zone
+  region        = var.region
   network       = google_compute_network.vpc.name
   ip_cidr_range = "10.10.0.0/24"
 
 }
 
-output "zone" {
-  value       = var.zone
-  description = "zone"
+output "region" {
+  value       = var.region
+  description = "region"
 }
