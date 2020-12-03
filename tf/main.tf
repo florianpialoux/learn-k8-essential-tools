@@ -1,10 +1,14 @@
+variable "zone" {
+  description = "zone"
+}
+
 # ---------------------------------------------------------------------------------------------------------------------
 # CREATE A GKE CLUSTER
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "google_container_cluster" "primary" {
   name               = "my-cluster"
-  location           = var.region
+  location           = var.zone
   remove_default_node_pool = true
   initial_node_count = 1
 
@@ -24,7 +28,7 @@ resource "google_container_cluster" "primary" {
 
   resource "google_container_node_pool" "primary_preemptible_nodes" {
     name       = "my-node-pool"
-    location   = var.region
+    location   = var.zone
     cluster    = google_container_cluster.primary.name
     node_count = 3
 
