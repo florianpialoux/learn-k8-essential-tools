@@ -13,7 +13,16 @@ In your terminal, clone this repository.
 git@gitlab.com:bluelightco/testing/florian-test.git
 ```
 
-Once you have cloned the repo and changed your customized variables, initialize your Terraform workspace, which will download the provider and initalize it with the values provided in your `terraform.tfvars` files.
+- `main.tf` provisions a GKE cluster and a seperate managed node pool.
+
+- `vpc.tf` provisions a VPC and subnet. The file outputs `region`
+
+- `terraform.tfvars` is a template for variables.
+
+- `versions.tf` sets the Terraform version to at least 0.12.
+
+Once you have cloned the repo and changed your customized variables, initialize your Terraform workspace, which will download the provider and initialize it with the values provided in your `terraform.tfvars` files.
+
 
 ```shell
 terraform init
@@ -45,7 +54,7 @@ This process should take approximately 5 minutes.
 Run the following command to retrieve the access credentials for your cluster and automatically configure `kubectl`.
 
 ```shell
-gcloud container clusters get-credentials $(terraform output kubernetes_cluster_name) --region $(terraform output region)
+gcloud container clusters get-credentials $(terraform output kubernetes_cluster_name) --region $(terraform output zone)
 ```
 # Useful resources
 
