@@ -4,6 +4,7 @@ variable "zone" {
 
 # ---------------------------------------------------------------------------------------------------------------------
 # CREATE A SINGLE ZONE GKE CLUSTER
+# It has a single control plane running in one zone. This control plane manages workloads on nodes running in the same zone.
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "google_container_cluster" "primary" {
