@@ -24,6 +24,11 @@ resource "google_container_cluster" "primary" {
     cluster    = google_container_cluster.primary.name
     node_count = 3
 
+    management {
+      auto_repair  = "true"
+      auto_upgrade = "true"
+    }
+
     node_config {
       preemptible     = true
       machine_type    = "g1-small"
