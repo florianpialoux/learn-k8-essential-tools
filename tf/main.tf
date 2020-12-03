@@ -1,7 +1,3 @@
-variable "zone" {
-  description = "zone"
-}
-
 resource "google_container_cluster" "primary" {
   name               = "my-cluster"
   location           = var.zone
