@@ -56,3 +56,7 @@ resource "google_container_cluster" "primary" {
     value       = google_container_cluster.primary.name
     description = "GKE Cluster Name"
   }
+  output "zone" {
+  value       = var.zone
+  description = "zone"
+  }
