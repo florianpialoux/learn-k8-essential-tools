@@ -1,8 +1,10 @@
 # Provision a GKE Cluster with terraform
 
-This repo contains Terraform configuration files to provision a GKE Cluster on GCP in us-west1-a zone with 3x g1-small nodes.
+This repo contains Terraform configuration files to provision a GKE Cluster on GCP in `us-west1-a` zone with 3x `g1-small` nodes.
 
 It also creates a VPC and subnet for the GKE Cluster to keep it isolated.
+
+**ignore the folder hello-app for now**
 
 # Set up and initialize your Terraform workspace
 
@@ -44,4 +46,10 @@ Run the following command to retrieve the access credentials for your cluster an
 
 ```shell
 gcloud container clusters get-credentials $(terraform output kubernetes_cluster_name) --region $(terraform output region)
+```
+# Cleanup your workspace
+Once you are done with your tests on your GKE cluster, remember to destroy any resources you create once you are done.
+Run the `destroy` terraform command and confirm with `yes` in your terminal.
+```shell
+terraform destroy
 ```
