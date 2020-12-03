@@ -54,7 +54,7 @@ This process should take approximately 5 minutes.
 Run the following command to retrieve the access credentials for your cluster and automatically configure `kubectl`.
 
 ```shell
-gcloud container clusters get-credentials $(terraform output kubernetes_cluster_name) --region $(terraform output zone)
+gcloud container clusters get-credentials $(terraform output kubernetes_cluster_name) --zone $(terraform output zone)
 ```
 # Useful resources
 
