@@ -49,7 +49,7 @@ gcloud container clusters get-credentials $(terraform output kubernetes_cluster_
 ```
 # Useful resources
 
-Hashicorp provides documentation on how `google_container_cluster` works [here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#disk_type).
+Hashicorp provides documentation on how `google_container_cluster` works [here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster).
 
 # Cleanup your workspace
 Once you are done with your tests on your GKE cluster, remember to destroy any resources you create once you are done.
