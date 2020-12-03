@@ -8,7 +8,7 @@ variable "zone" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 resource "google_container_cluster" "primary" {
-  name               = "my-cluster"
+  name               = "cluster123"
   location           = var.zone
   remove_default_node_pool = true
   initial_node_count = 1
