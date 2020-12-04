@@ -1,0 +1,38 @@
+version: v1beta9
+
+deployments:
+
+- name: nginx
+  helm:
+    chart:
+      name: bitnami/nginx-ingress-controller
+
+- name: mysql
+  helm:
+    chart:
+      name: bitnami/mysql
+    values:
+      mysqlRootPassword: 123456789
+      mysqlUser: florian
+      mysqlPassword: 123456
+      mysqlDatabase: florian-db
+      persistence:
+        enabled: true
+        size: 8Gi
+      service:
+        type: LoadBalancer
+        nodePort: 30306
+
+dev: {}
+profiles:
+- name: interactive
+  patches:
+  - op: add
+    path: dev.interactive
+    value:
+      defaultEnabled: true
+  - op: add
+    path: images.app.entrypoint
+    value:
+    - sleep
+    - "999999999"
