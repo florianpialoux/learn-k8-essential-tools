@@ -8,8 +8,8 @@ variable "region" {
 
 provider "google" {
   credentials = file("florian-test-297317-579f4bd03967.json")
-  project = var.project_id
-  region  = var.region
+  project     = var.project_id
+  region      = var.region
 }
 
 # VPC
