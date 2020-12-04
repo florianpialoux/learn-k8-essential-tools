@@ -29,11 +29,14 @@ deployments:
         mariadb:
           enabled: false
         externalDatabase:
-          host: 10.3.253.208
+          host: 10.3.253.192
           user: florian
           password: toto
           database: florian-db
           port: 3306
+        autoscaling:
+          minReplicas: 1
+          maxReplicas: 1
 
 dev: {}
 profiles:
