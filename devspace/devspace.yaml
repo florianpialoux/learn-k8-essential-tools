@@ -12,6 +12,12 @@ deployments:
         auth:
           database: florian-db
           username: florian
+          rootPassword: toto123
+          password: toto
+        primary:
+          service:
+            type: ClusterIP
+            ClusterIP: 10.3.253.208
   - name: wordpress
     helm:
       chart:
@@ -19,7 +25,15 @@ deployments:
       values:
         wordpressEmail: wp@test.com
         wordpressUsername: wp
-        wordpressPassword: 123456
+        wordpressPassword: toto
+        mariadb:
+          enabled: false
+        externalDatabase:
+          host: 10.3.253.208
+          user: florian
+          password: toto
+          database: florian-db
+          port: 3306
 
 dev: {}
 profiles:
