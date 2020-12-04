@@ -12,10 +12,15 @@ deployments:
         auth:
           database: florian-db
           username: florian
-        primary:
-          service:
-            type: LoadBalancer
-            nodePort: 30306
+  - name: wordpress
+    helm:
+      chart:
+        name: bitnami/wordpress
+      values:
+        wordpressEmail: wp@test.com
+        wordpressUsername: wp
+        wordpressPassword: 123456
+
 dev: {}
 profiles:
 - name: interactive
