@@ -31,7 +31,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   name       = "my-node-pool"
   location   = var.zone
   cluster    = google_container_cluster.primary.name
-  node_count = 1
+  node_count = 3
 
   management {
     auto_repair  = "true"
@@ -40,7 +40,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
 
   node_config {
     preemptible  = true
-    machine_type = "g1-small"
+    machine_type = "e2-medium"
     image_type   = "COS"
     disk_size_gb = "30"
     disk_type    = "pd-standard"
