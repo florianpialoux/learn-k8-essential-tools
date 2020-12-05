@@ -56,9 +56,37 @@ Run the following command to retrieve the access credentials for your cluster an
 ```shell
 gcloud container clusters get-credentials $(terraform output kubernetes_cluster_name) --zone $(terraform output zone)
 ```
+
+# Get started with DevSpace
+**Install DevSpace CLI**
+```shell
+curl -s -L "https://github.com/devspace-cloud/devspace/releases/latest" | sed -nE 's!.*"([^"]*devspace-linux-amd64)".*!https://github.com\1!p' | xargs -n 1 curl -L -o devspace && chmod +x devspace;
+
+sudo install devspace /usr/local/bin;
+```
+
+Move to devspace folder
+
+```shell
+cd /florian-test/devspace
+```
+**Prepare Kube-Context**
+
+To develop and deploy your project with DevSpace, you need a valid kube-context because DevSpace uses the kube-config file just like kubectl or helm.
+```shell
+devspace use namespace testing
+```
+
+**Run the development mode**
+```shell
+devspace dev
+```
+
+This command above will build and deploy your application from your devspace.yaml directly on your k8 cluster.
+
 # Useful resources
 
-Hashicorp provides documentation on how `google_container_cluster` works [here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster).
+Hashicorp provides documentation on how `google_container_cluster` resource for Terraform works [here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster).
 
 # Cleanup your workspace
 Once you are done with your tests on your GKE cluster, remember to destroy any resources you create once you are done.
