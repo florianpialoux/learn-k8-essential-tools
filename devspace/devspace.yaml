@@ -29,7 +29,7 @@ deployments:
         mariadb:
           enabled: false
         externalDatabase:
-          host: 10.3.253.192
+          host: 10.3.253.208
           user: florian
           password: toto
           database: florian-db
