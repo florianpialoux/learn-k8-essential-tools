@@ -16,8 +16,7 @@ deployments:
           password: toto
         primary:
           service:
-            type: ClusterIP
-            ClusterIP: 10.3.253.208
+            clusterIP: 10.3.253.92
   - name: wordpress
     helm:
       chart:
@@ -29,7 +28,7 @@ deployments:
         mariadb:
           enabled: false
         externalDatabase:
-          host: 10.3.253.208
+          host: 10.3.253.92
           user: florian
           password: toto
           database: florian-db
@@ -37,6 +36,10 @@ deployments:
         autoscaling:
           minReplicas: 1
           maxReplicas: 1
+        service:
+          type: LoadBalancer
+          nodePorts.http: 32307
+          nodePorts.https: 30759
 
 dev: {}
 profiles:
