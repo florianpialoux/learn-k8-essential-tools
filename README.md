@@ -84,6 +84,9 @@ devspace dev
 
 This command above will build and deploy your application from your devspace.yaml directly on your k8 cluster.
 
+`devspace.yaml` will run the following applications on your k8 cluster: **MySQL, Nginx and WordPress.**
+
+
 # Useful resources
 
 Hashicorp provides documentation on how `google_container_cluster` resource for Terraform works [here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster).
