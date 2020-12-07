@@ -91,6 +91,8 @@ This command above will build and deploy your application from your devspace.yam
 
 Hashicorp provides documentation on how `google_container_cluster` resource for Terraform works [here](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster).
 
+Helm charts for [MySQL](https://artifacthub.io/packages/helm/bitnami/mysql) and [WordPress](https://artifacthub.io/packages/helm/bitnami/wordpress).
+
 # Cleanup your workspace
 Once you are done with your tests on your GKE cluster, remember to destroy any resources you create once you are done.
 Run the `destroy` terraform command and confirm with `yes` in your terminal.
