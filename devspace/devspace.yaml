@@ -36,8 +36,11 @@ deployments:
         autoscaling:
           minReplicas: 1
           maxReplicas: 1
+        ingress:
+          enabled: true
+          hostname: wordpress.qaz.to
         service:
-          type: LoadBalancer
+          type: ClusterIP
           nodePorts.http: 32307
           nodePorts.https: 30759
 
