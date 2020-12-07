@@ -95,6 +95,7 @@ To understand the end goal with that deployment:
 
 ```shell
 kubectl get services
+
 NAME                                             TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                      AGE
 mysql                                            ClusterIP      10.3.253.92    <none>           3306/TCP                     3h34m
 nginx-nginx-ingress-controller                   LoadBalancer   10.3.252.198   104.196.231.91   80:31744/TCP,443:31840/TCP   3h34m
@@ -102,7 +103,8 @@ nginx-nginx-ingress-controller-default-backend   ClusterIP      10.3.248.157   <
 wordpress                                        ClusterIP      10.3.245.74    <none>           80/TCP,443/TCP               43m
 ```
 ```shell
-kgi
+kubectl get ingress
+
 NAME        HOSTS              ADDRESS         PORTS   AGE
 wordpress   wordpress.qaz.to   35.233.142.11   80      47m
 ```
@@ -117,5 +119,6 @@ Helm charts for [MySQL](https://artifacthub.io/packages/helm/bitnami/mysql) and 
 Once you are done with your tests on your GKE cluster, remember to destroy any resources you create once you are done.
 Run the `destroy` terraform command and confirm with `yes` in your terminal.
 ```shell
+cd /tf
 terraform destroy
 ```
