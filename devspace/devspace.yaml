@@ -41,8 +41,6 @@ deployments:
           hostname: wordpress.qaz.to
         service:
           type: ClusterIP
-          nodePorts.http: 32307
-          nodePorts.https: 30759
 
 dev: {}
 profiles:
