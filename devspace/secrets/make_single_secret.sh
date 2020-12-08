@@ -16,11 +16,3 @@ kubectl -n $NAMESPACE create secret generic $KEY_T \
     $SCOPE \
     --controller-namespace kube-system \
     > $KEY.json
-
-echo -e "\nExample secret key reference:"
-echo "env:"
-echo "- name: $KEY"
-echo "  valueFrom:"
-echo "    secretKeyRef:"
-echo "      name: $KEY_T"
-echo "      key: $KEY"
