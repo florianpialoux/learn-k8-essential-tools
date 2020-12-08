@@ -47,5 +47,5 @@ profiles:
   replace:
     dependencies:
     - source:
-        path: ../sealed-secrets-controller
+        path: secrets/sealed-secrets-controller
       namespace: kube-system
