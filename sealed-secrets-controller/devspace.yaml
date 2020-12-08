@@ -1,0 +1,13 @@
+version: v1beta9
+deployments:
+  - name: sealed-secrets-controller
+    helm:
+      wait: true
+      chart:
+        name: stable/sealed-secrets
+        version: 1.10.3
+      values:
+        namespace: kube-system
+
+profiles:
+  - name: production
