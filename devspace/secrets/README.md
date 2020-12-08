@@ -28,7 +28,7 @@ env:
       key: DB_PASSWORD
 ```
 
-# Useful resources
+### Useful resources
 https://aws.amazon.com/blogs/opensource/managing-secrets-deployment-in-kubernetes-using-sealed-secrets/
 
 https://github.com/bitnami-labs/sealed-secrets/blob/master/README.md#usage
