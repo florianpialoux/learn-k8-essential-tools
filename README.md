@@ -77,14 +77,14 @@ To develop and deploy your project with DevSpace, you need a valid kube-context 
 devspace use namespace testing
 ```
 
-**Run the development mode**
+**Deploy your project**
 ```shell
-devspace dev
+devspace deploy -p production
 ```
 
 This command above will build and deploy your application from your devspace.yaml directly on your k8 cluster.
 
-`devspace.yaml` will run the following applications on your k8 cluster: **MySQL, Nginx and WordPress.**
+`devspace.yaml` will run the following applications on your k8 cluster: **MySQL, Nginx, WordPress and Sealed Secrets.**
 
 # Network
 
