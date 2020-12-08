@@ -42,16 +42,10 @@ deployments:
         service:
           type: ClusterIP
 
-dev: {}
 profiles:
-- name: interactive
-  patches:
-  - op: add
-    path: dev.interactive
-    value:
-      defaultEnabled: true
-  - op: add
-    path: images.app.entrypoint
-    value:
-    - sleep
-    - "999999999"
+- name: production
+  replace:
+    dependencies:
+    - source:
+        path: ../sealed-secrets-controller
+      namespace: kube-system
