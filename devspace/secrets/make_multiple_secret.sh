@@ -11,7 +11,7 @@ read -p "MySQL-Password-For-WP:" WP_DATABASE_PASSWORD
 read -p "WP-Password:" WP_PASSWORD
 
 
-kubectl -n $NAMESPACE create secret generic mysql-credentials \
+kubectl -n $NAMESPACE create secret generic credentials \
   --dry-run=client \
   --from-literal=mysql-password="$MYSQL_PASSWORD" \
   --from-literal=mysql-replication-password="$MYSQL_REPLICATION_PASSWORD" \
