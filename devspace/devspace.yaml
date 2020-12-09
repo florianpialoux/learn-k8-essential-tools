@@ -4,16 +4,19 @@ deployments:
     helm:
       chart:
         name: bitnami/nginx-ingress-controller
+  - name: manifests
+    kubectl:
+      manifests:
+        - secrets
   - name: mysql
     helm:
       chart:
         name: bitnami/mysql
       values:
         auth:
+          existingSecret: credentials
           database: florian-db
           username: florian
-          rootPassword: toto123
-          password: toto
         primary:
           service:
             clusterIP: 10.3.253.92
@@ -24,13 +27,13 @@ deployments:
       values:
         wordpressEmail: wp@test.com
         wordpressUsername: wp
-        wordpressPassword: toto
+        existingSecret: credentials
         mariadb:
           enabled: false
         externalDatabase:
           host: 10.3.253.92
           user: florian
-          password: toto
+          existingSecret: credentials
           database: florian-db
           port: 3306
         autoscaling:
