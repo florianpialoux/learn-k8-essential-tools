@@ -4,6 +4,7 @@ deployments:
     kubectl:
       manifests:
         - secrets
+        - .k8s
   - name: external-dns
     helm:
       chart:
@@ -11,6 +12,9 @@ deployments:
       values:
         logLevel: debug
         provider: cloudflare
+        serviceTypeFilter:
+          - LoadBalancer
+          - ExternalName
         zoneIdFilters:
           - 4025071c033eda2d42ef9fc40865cff9
         cloudflare:
@@ -22,7 +26,6 @@ deployments:
       values:
         service:
           type: LoadBalancer
-          loadBalancerIP: 35.247.82.139
           annotations:
             external-dns.alpha.kubernetes.io/hostname: nginx.qaz.to
   - name: mysql
@@ -55,11 +58,11 @@ deployments:
           maxReplicas: 1
         ingress:
           enabled: true
-          hostname: wordpress
+          hostname: wordpress.qaz.to
+          annotations:
+            kubernetes.io/ingress.class: nginx
         service:
           type: ClusterIP
-          annotations:
-            external-dns.alpha.kubernetes.io/hostname: wordpress.qaz.to
 profiles:
 - name: production
   replace:
