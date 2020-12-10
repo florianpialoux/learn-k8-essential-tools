@@ -34,9 +34,6 @@ deployments:
           existingSecret: credentials
           database: florian-db
           username: florian
-        primary:
-          service:
-            clusterIP: 10.3.253.92
   - name: wordpress
     helm:
       chart:
@@ -48,7 +45,7 @@ deployments:
         mariadb:
           enabled: false
         externalDatabase:
-          host: 10.3.253.92
+          host: mysql.testing.svc.cluster.local
           user: florian
           existingSecret: credentials
           database: florian-db
@@ -61,6 +58,8 @@ deployments:
           hostname: wordpress
         service:
           type: ClusterIP
+          annotations:
+            external-dns.alpha.kubernetes.io/hostname: wordpress.qaz.to
 profiles:
 - name: production
   replace:
