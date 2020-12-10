@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: external-dns-wordpress
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: wordpress.qaz.to
+    external-dns.alpha.kubernetes.io/hostname: wordpress.qaz.to, apache2.qaz.to
 spec:
   type: ExternalName
   externalName: nginx.qaz.to
