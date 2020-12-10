@@ -1,13 +1,30 @@
 version: v1beta9
 deployments:
-  - name: nginx
-    helm:
-      chart:
-        name: bitnami/nginx-ingress-controller
   - name: manifests
     kubectl:
       manifests:
         - secrets
+  - name: external-dns
+    helm:
+      chart:
+        name: bitnami/external-dns
+      values:
+        logLevel: debug
+        provider: cloudflare
+        zoneIdFilters:
+          - 4025071c033eda2d42ef9fc40865cff9
+        cloudflare:
+          secretName: external-dns
+  - name: nginx
+    helm:
+      chart:
+        name: bitnami/nginx-ingress-controller
+      values:
+        service:
+          type: LoadBalancer
+          loadBalancerIP: 35.247.82.139
+          annotations:
+            external-dns.alpha.kubernetes.io/hostname: nginx.qaz.to
   - name: mysql
     helm:
       chart:
@@ -41,10 +58,9 @@ deployments:
           maxReplicas: 1
         ingress:
           enabled: true
-          hostname: wordpress.qaz.to
+          hostname: wordpress
         service:
           type: ClusterIP
-
 profiles:
 - name: production
   replace:
