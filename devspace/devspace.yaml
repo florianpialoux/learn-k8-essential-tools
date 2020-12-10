@@ -64,6 +64,19 @@ deployments:
             kubernetes.io/ingress.class: nginx
         service:
           type: ClusterIP
+  - name: apache2-custom
+    helm:
+      componentChart: true
+      values:
+        containers:
+        - image: gcr.io/florian-test-297317/apache2:v2
+        service:
+          ports:
+            - port: 80
+        ingress:
+          rules:
+            - host: apache2.qaz.to
+              path: /
 profiles:
 - name: production
   replace:
