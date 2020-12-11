@@ -66,6 +66,9 @@ deployments:
           username: florian
 ```
 
+### To do:
+- [ ] Find a way for secrets to work after a cluster wipe instead of recreating them manually.
+
 ### Useful resources
 https://aws.amazon.com/blogs/opensource/managing-secrets-deployment-in-kubernetes-using-sealed-secrets/
 
