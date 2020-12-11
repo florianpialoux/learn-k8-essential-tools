@@ -1,4 +1,13 @@
 version: v1beta9
+
+images:
+  default:
+    image: gcr.io/florian-test-297317/apache2
+    tags:
+      - ${DEVSPACE_RANDOM}
+      - latest
+    createPullSecret: true
+
 deployments:
   - name: manifests
     kubectl:
@@ -12,7 +21,7 @@ deployments:
       values:
         logLevel: debug
         provider: cloudflare
-# l16 necessary otherwise external-dns create an A record based on IP Node where Wordpress pod run
+# L16 necessary otherwise external-dns create an A record based on IP Node where Wordpress pod run
         serviceTypeFilter:
           - LoadBalancer
           - ExternalName
@@ -69,7 +78,7 @@ deployments:
       componentChart: true
       values:
         containers:
-        - image: gcr.io/florian-test-297317/apache2:v2
+        - image: gcr.io/florian-test-297317/apache2:latest
         service:
           ports:
             - port: 80
