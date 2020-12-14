@@ -65,7 +65,7 @@ sudo install devspace /usr/local/bin;
 Move to devspace folder
 
 ```shell
-cd /florian-test/devspace
+cd /learn-k8-essential-tools/devspace
 ```
 **Prepare Kube-Context**
 
