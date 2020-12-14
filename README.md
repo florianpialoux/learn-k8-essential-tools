@@ -9,9 +9,6 @@ It also creates a VPC and subnet for the GKE Cluster to keep it isolated.
 # Set up and initialize your Terraform workspace
 
 In your terminal, clone this repository.
-```shell
-git@gitlab.com:bluelightco/testing/florian-test.git
-```
 
 - `main.tf` provisions a GKE cluster and a seperate managed node pool.
 
